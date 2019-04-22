@@ -1,0 +1,36 @@
+<form>
+<fieldset>
+    <legend>ADD Service</legend>
+    <div>
+      <label>Nom :</label>
+      <input name="nom" [(ngModel)]="selectedService.nom" />
+
+      <button (click)="addService();">Ajouter</button>
+    </div>
+</fieldset>
+</form>
+
+
+<table border="1">
+ <thead>
+   <tr>
+     <th>
+       ID
+     </th>
+    <th>
+      NOM
+    </th>
+    <th>
+      SUPPRIMER
+    </th>
+   
+  </tr>
+ </thead>
+<tbody *ngIf ="services">
+    <tr *ngFor="let service of services">
+        <td>{{service.id}}</td>
+        <td>{{service.nom}}</td>
+        <td><button (click)="deleteService(service.id)">supprimer</button></td>
+      </tr>
+</tbody>
+</table>
